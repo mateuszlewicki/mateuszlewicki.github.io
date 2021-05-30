@@ -1,0 +1,120 @@
+I"�<h2 id="wstęp---read-the--manual">Wstęp - Read The … Manual</h2>
+
+<p>W pierwszej części z serii “Skrypty powłoki Bash” zajmiemy się najważniejszym zagadnieniem przy pracy z powłoką Bash, jak i samym Linuxem.</p>
+
+<p>Zagadnieniem tym jest system manuali inaczej dokumentacja samej dystrybucji, zainstalowanych programów i wiele więcej.
+Opowiem trochę o manualach oraz jak z nich korzystać.</p>
+
+<h2 id="pierwszy-kontakt">Pierwszy kontakt</h2>
+
+<p>Komendą powłoki, która służy do wywołania manuala, jest komenda <code class="language-plaintext highlighter-rouge">man</code>.</p>
+
+<p>Manual wywołujemy przy użyciu <code class="language-plaintext highlighter-rouge">man &lt;termin&gt;</code> w przypadku braku sprecyzowania szukanego terminu od razu otrzymamy pytanie, którą “stronę” chcemy obejrzeć.</p>
+
+<h2 id="przed-wyruszeniem-w-drogę-należy--wiedzieć-gdzie-się-idzie">Przed wyruszeniem w drogę należy … wiedzieć gdzie się idzie</h2>
+
+<p>Gdy zaczynamy nową przygodę, chcemy jak najwięcej wiedzieć o naszym celu jak do niego dotrzeć, czemu akurat ten kierunek i tym podobne.
+W dzisiejszym przypadku naszą przygodą będzie nauka manuala (nudne, żmudne, ale 5 minut dokumentacji oszczędza 8 godz. szukania błędów).</p>
+
+<p>Załóżmy, że nie wiemy zupełnie nic, nikt nam o naszym celu nie chce powiedzieć (o manualu znaczy się :) ) więc musimy wykorzystać niekonwencjonalne metody - poprosić man’a by sam się przedstawił.</p>
+
+<p>Możemy uzyskać informację komendą:</p>
+
+<pre><code class="language-Bash">man man
+</code></pre>
+
+<p>I man z chęcią sam się nam przedstawi.</p>
+
+<h2 id="ukaż-się-siło--w-sumie-czysta">Ukaż się Siło … w sumie czysta.</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MAN(1) Manual pager utils MAN(1)
+
+NAME
+man - an interface to the on-line reference manuals
+</code></pre></div></div>
+<p>Man otworzy się nam domyślnie w programie <code class="language-plaintext highlighter-rouge">less</code>chyba że ustawimy zmienną <code class="language-plaintext highlighter-rouge">PAGER</code> na inny program.
+Na samej górze strony widzimy w prawy i lewym roku nazwę naszego poszukiwanego zapytania oraz numer sekji, w której się ten termin znajduje. Po środku mamy taką ogólną informację jak “zaszufladkowany” jest szukany przez nas termin.</p>
+
+<p>Dalej nasz termin, w tym przypadku komenda <code class="language-plaintext highlighter-rouge">man</code> się przedstawia z imienia oraz skróconej informacji czego on to nie potrafi.</p>
+
+<blockquote>
+  <p>Proszę się nie przejmować słowem on-line. Bez internetu również działa, bo wszelka dostępna dokumentacja jest zapisywana lokalnie na dysku w katalogu <code class="language-plaintext highlighter-rouge">/usr/share/man/</code></p>
+</blockquote>
+
+<p>Niżej otrzymujemy swoiste streszczenie na temat tego, jak korzystać z polecenia oraz jakie przełącniki posiada, które zmieniają jego działanie.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SYNOPSIS
+man [-C file] [-d] [-D] [--warnings[=warnings]] [-R encoding] [-L locale] [-m system[,...]] [-M path] [-S list] [-e extension] [-i|-I] [--regex|--wildcard]
+[--names-only] [-a] [-u] [--no-subpages] [-P pager] [-r prompt] [-7] [-E encoding] [--no-hyphenation] [--no-justification] [-p string] [-t] [-T[device]]
+[-H[browser]] [-X[dpi]] [-Z] [[section] page[.section] ...] ...
+man -k [apropos options] regexp ...
+man -K [-w|-W] [-S list] [-i|-I] [--regex] [section] term ...
+man -f [whatis options] page ...
+man -l [-C file] [-d] [-D] [--warnings[=warnings]] [-R encoding] [-L locale] [-P pager] [-r prompt] [-7] [-E encoding] [-p string] [-t] [-T[device]]
+[-H[browser]] [-X[dpi]] [-Z] file ...
+man -w|-W [-C file] [-d] [-D] page ...
+man -c [-C file] [-d] [-D] page ...
+man [-?V]
+</code></pre></div></div>
+
+<p>Najczęściej używanym przełącznikiem jest <code class="language-plaintext highlighter-rouge">-k</code>, który jest w pewnym sensie aliasem do komendy <code class="language-plaintext highlighter-rouge">apropos</code>, która wyszukuje manuale w poszukiwaniu danego słowa w nazwie lub opisie (sekcja NAME)</p>
+
+<blockquote>
+  <p>mówię “w pewnym sensie” ponieważ, swego czasu, gdy zbierałem materiały do prowadzenia szkolenia, to wyniki komend <code class="language-plaintext highlighter-rouge">man -k</code> oraz <code class="language-plaintext highlighter-rouge">apropos</code> różniły się, dzisiaj już nie pamiętam, jakie były tego okoliczności oraz dlaczego tak się działo, ale gdy sobie przypomnę, to dodam :)</p>
+</blockquote>
+
+<p>Dla testów wywołajmy komendę <code class="language-plaintext highlighter-rouge">man -k</code> dla terminu, który nas obecnie interesuje.</p>
+
+<p>Np.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man <span class="nt">-k</span> bash
+</code></pre></div></div>
+<p>i okazuje się, że tych “bash’y” jest więcej niż jeden.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash (1) - GNU Bourne-Again SHell
+bash-builtins (7) - bash built-in commands, see bash(1)
+bashbug (1) - report a bug in bash
+builtins (7) - bash built-in commands, see bash(1)
+rbash (1) - restricted bash, see bash(1)
+</code></pre></div></div>
+<blockquote>
+  <p>Jeżeli chcemy poszukać informacji na temat jakiegoś terminu, ale pamiętamy, tylko że zaczyna się na “wa”, możemy “zapytać” w takis sposób <code class="language-plaintext highlighter-rouge">man -k ^wa</code>, otrzymamy w ten sposób komendy, których nazwa lub opis rozpoczyna się od wa (niezależnie od wielkości)</p>
+</blockquote>
+
+<p>Powiedzmy, że chcemy się dowiedzieć, czy istnieje manual tylko dla tego jedynego terminu, który nas interesuje.
+w takim przypadku użyjemy przełącznika <code class="language-plaintext highlighter-rouge">-f</code> :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man <span class="nt">-f</span> bash
+</code></pre></div></div>
+<p>I teraz otrzymujemy informację tylko o naszym terminie.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash (1) - GNU Bourne-Again Shell
+</code></pre></div></div>
+
+<h2 id="panie-adminie-gdzie-patrzeć">Panie adminie, gdzie patrzeć?</h2>
+
+<p>w sekcji opisu (ang - DESCRIPTION), możemy zobaczyć pewną listę.
+Lista ta, to spis sekcji, jakim są przypisane strony manuala.
+Każda sekcja ma informacje na inny temat:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 Executable programs or shell commands
+2 System calls (functions provided by the kernel)
+3 Library calls (functions within program libraries)
+4 Special files (usually found in /dev)
+5 File formats and conventions eg /etc/passwd
+6 Games
+7 Miscellaneous (including macro packages and conventions), e.g. man(7), groff(7)
+8 System administration commands (usually only for root)
+9 Kernel routines [Non standard]
+</code></pre></div></div>
+<p>Może się zdarzyć, że jeden termin będzie w dwóch sekcjach. Wtedy komenda ‘man term’ otworzy stronę z sekcji o niższej numeracji.
+Weźmy dla przykładu termin hostname.
+Komenda <code class="language-plaintext highlighter-rouge">man -f hostname</code> zwraca nam dwa wyniki:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hostname (1) - show or set the system's host name
+hostname (5) - Local hostname configuration file
+</code></pre></div></div>
+
+<p>w tym momencie, by otworzyć stronę z sekcji piątej, musimy jawnie określić numer strony, używając ‘man 5 hostname’ lub ‘man hostname.5’</p>
+
+<p>Na dziś to już koniec. Jeśli artykuł był przydatny lub ciekawy, udostępnijcie i polecajcie, a przede wszystkim czekajcie na następną część :)</p>
+:ET
