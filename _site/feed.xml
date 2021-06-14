@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="mateuszlewicki.pl/feed.xml" rel="self" type="application/atom+xml" /><link href="mateuszlewicki.pl/" rel="alternate" type="text/html" /><updated>2021-06-14T13:28:02+02:00</updated><id>mateuszlewicki.pl/feed.xml</id><title type="html">Mateusz Lewicki Blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Skrypty powłoki Bash #2 - Jak Gutenberg przykazał</title><link href="mateuszlewicki.pl/skrypty/2021/Bash2.html" rel="alternate" type="text/html" title="Skrypty powłoki Bash #2 - Jak Gutenberg przykazał" /><published>2021-06-14T00:00:00+02:00</published><updated>2021-06-14T00:00:00+02:00</updated><id>mateuszlewicki.pl/skrypty/2021/Bash2</id><content type="html" xml:base="mateuszlewicki.pl/skrypty/2021/Bash2.html">&lt;p&gt;Dzisiaj zajmiemy się “drukowaniem”, czyli wyświetlaniem wyników na ekran.. i nie tylko.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="mateuszlewicki.pl/feed.xml" rel="self" type="application/atom+xml" /><link href="mateuszlewicki.pl/" rel="alternate" type="text/html" /><updated>2021-06-14T13:28:43+02:00</updated><id>mateuszlewicki.pl/feed.xml</id><title type="html">Mateusz Lewicki Blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Skrypty powłoki Bash #2 - Jak Gutenberg przykazał</title><link href="mateuszlewicki.pl/skrypty/2021/Bash2.html" rel="alternate" type="text/html" title="Skrypty powłoki Bash #2 - Jak Gutenberg przykazał" /><published>2021-06-14T00:00:00+02:00</published><updated>2021-06-14T00:00:00+02:00</updated><id>mateuszlewicki.pl/skrypty/2021/Bash2</id><content type="html" xml:base="mateuszlewicki.pl/skrypty/2021/Bash2.html">&lt;p&gt;Dzisiaj zajmiemy się “drukowaniem”, czyli wyświetlaniem wyników na ekran.. i nie tylko.&lt;/p&gt;
 
 &lt;p&gt;Zapraszam serdecznie&lt;/p&gt;
 
@@ -176,42 +176,12 @@ Jest to program którego funkcją, tak samo jak &lt;code class=&quot;language-pl
        and all C format specifications ending with one of diouxXfeEgGcs, with ARGUMENTs converted to proper type first.  Variable widths are handled.
 
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Jak widzimmy w opisie, większość operacji się pokrywa, z tą różnicą, że printf ma inną notacje dla kodów  ósemkowych, oraz potrafi drukować z UNICODE oraz formatować komendy by nie były interpretowane, pzydatne kiedy budujemy komendę i chcemy by uruchomiła się ona dopiero gdzy wszystkie elementy się znajdą np. w zmiennej.&lt;/p&gt;
+&lt;p&gt;Jak widzimmy w opisie, większość operacji się pokrywa, z tą różnicą, że printf ma inną notacje dla kodów  ósemkowych, potrafi drukować z UNICODE oraz formatować komendy by nie były interpretowane, pzydatne kiedy budujemy komendę i chcemy by uruchomiła się ona dopiero gdzy wszystkie elementy się znajdą np. w zmiennej.&lt;/p&gt;
 
-&lt;p&gt;po więcej informaji na temat możliwości printf zapraszam pod 3 stronę manuala =&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man 3 printf&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;po więcej informacji na temat możliwości printf zapraszam pod 3 stronę manuala =&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man 3 printf&lt;/code&gt;. Jest tego sporo i zachodzi to trochę na ziemie języka C, dlatego też tutaj się zatrymam i zostawię to do własnego przestudiowania.&lt;/p&gt;
 
-&lt;p&gt;Programy typu “Hello World” są najczęściej pisanymi programami, w każdym języku czy to assembler, bash, python, haskell, java, c, go itd.&lt;/p&gt;
-
-&lt;p&gt;Dlatego tradycyjnie musi i tu się taki program pojawić.&lt;/p&gt;
-
-&lt;p&gt;Spójrzmy na niego za tem&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hello world&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;To było … szybkie.&lt;/p&gt;
-
-&lt;p&gt;Ale co tu jest?&lt;/p&gt;
-
-&lt;p&gt;Rozłózmy te dwie linijki na czynniki pierwsze.&lt;/p&gt;
-
-&lt;p&gt;Pierwsza linia jest to tak zwany “shebang” jest to informacja dla systemu o absolutnej ścieżce do  interpretera którego należy wykorzystać w celu uruchomienia danego skryptu.
-W tym przypadku podaliśmy ścieżkę do komendy &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;env&lt;/code&gt; która wyszuka nam komendę &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bash&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;I tak i nie do końca. Tak się mówi, ale prawda jest taka, że komenda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;env&lt;/code&gt; uruchamia komendę, po niej następującą w zmienionym środowisku. Czyli tak naprawdę, są w tej linii dwie akcje.
-1) Załadowanie środowiska i zmiennych systemowych ( w tym zmiennej &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PATH&lt;/code&gt;)
-2) Uruchomienie intepretera bash, odnalezione w jednym z katalogów zdefiniowanych w zmiennej &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PATH&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Druga linia to już nasze właściwie działanie.
-Komenda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo&lt;/code&gt; jest komendą, która &quot;wydrukuje&quot; na ekran linię z tekstem (linię, czyli ostatnim znakiem będzie LF|\n) i tak przy komendzie &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo &quot;Hello World&quot;&lt;/code&gt; otrzymamy wynik &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello world&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/hw.png&quot; alt=&quot;Hello World&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Jest jeszcze jedna komenda odpowiedzialna za drukowanie na ekranie. Jest to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;printf&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Nie będziemy się dziś tą komendą ale zapraszam do zapoznania się z nią pod &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man printf&lt;/code&gt;&lt;/p&gt;</content><author><name></name></author><category term="Skrypty" /><category term="Bash" /><category term="Shell" /><category term="Administracja" /><category term="Linux" /><summary type="html">Dzisiaj zajmiemy się “drukowaniem”, czyli wyświetlaniem wyników na ekran.. i nie tylko.</summary></entry><entry><title type="html">Skrypty powłoki Bash #1 - RTFM</title><link href="mateuszlewicki.pl/skrypty/2021/Bash1.html" rel="alternate" type="text/html" title="Skrypty powłoki Bash #1 - RTFM" /><published>2021-05-30T00:00:00+02:00</published><updated>2021-05-30T00:00:00+02:00</updated><id>mateuszlewicki.pl/skrypty/2021/Bash1</id><content type="html" xml:base="mateuszlewicki.pl/skrypty/2021/Bash1.html">&lt;h2 id=&quot;wstęp---read-the--manual&quot;&gt;Wstęp - Read The … Manual&lt;/h2&gt;
+&lt;p&gt;W następnym poście z serii przejdziemy już do rozsławionego rpzez każdy język programowania programu .. Hello world oraz opowiemy sobie trochę o środowisku urchomieniowym. 
+Serdecznie zapraszam :)&lt;/p&gt;</content><author><name></name></author><category term="Skrypty" /><category term="Bash" /><category term="Shell" /><category term="Administracja" /><category term="Linux" /><summary type="html">Dzisiaj zajmiemy się “drukowaniem”, czyli wyświetlaniem wyników na ekran.. i nie tylko.</summary></entry><entry><title type="html">Skrypty powłoki Bash #1 - RTFM</title><link href="mateuszlewicki.pl/skrypty/2021/Bash1.html" rel="alternate" type="text/html" title="Skrypty powłoki Bash #1 - RTFM" /><published>2021-05-30T00:00:00+02:00</published><updated>2021-05-30T00:00:00+02:00</updated><id>mateuszlewicki.pl/skrypty/2021/Bash1</id><content type="html" xml:base="mateuszlewicki.pl/skrypty/2021/Bash1.html">&lt;h2 id=&quot;wstęp---read-the--manual&quot;&gt;Wstęp - Read The … Manual&lt;/h2&gt;
 
 &lt;p&gt;W pierwszej części z serii “Skrypty powłoki Bash” zajmiemy się najważniejszym zagadnieniem przy pracy z powłoką Bash, jak i samym Linuxem.&lt;/p&gt;
 

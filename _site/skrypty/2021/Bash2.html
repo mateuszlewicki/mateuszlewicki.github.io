@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
-    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 6 mins</span>
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 5 mins</span>
   </p>
 <div class="post-tags">
 <a class="post-tag" href="/tags.html#Bash">#Bash</a><a class="post-tag" href="/tags.html#Shell">#Shell</a><a class="post-tag" href="/tags.html#Administracja">#Administracja</a><a class="post-tag" href="/tags.html#Linux">#Linux</a>
@@ -624,42 +624,12 @@ Jest to program którego funkcją, tak samo jak <code class="language-plaintext 
        and all C format specifications ending with one of diouxXfeEgGcs, with ARGUMENTs converted to proper type first.  Variable widths are handled.
 
 </code></pre>
-<p>Jak widzimmy w opisie, większość operacji się pokrywa, z tą różnicą, że printf ma inną notacje dla kodów  ósemkowych, oraz potrafi drukować z UNICODE oraz formatować komendy by nie były interpretowane, pzydatne kiedy budujemy komendę i chcemy by uruchomiła się ona dopiero gdzy wszystkie elementy się znajdą np. w zmiennej.</p>
+<p>Jak widzimmy w opisie, większość operacji się pokrywa, z tą różnicą, że printf ma inną notacje dla kodów  ósemkowych, potrafi drukować z UNICODE oraz formatować komendy by nie były interpretowane, pzydatne kiedy budujemy komendę i chcemy by uruchomiła się ona dopiero gdzy wszystkie elementy się znajdą np. w zmiennej.</p>
 
-<p>po więcej informaji na temat możliwości printf zapraszam pod 3 stronę manuala =&gt; <code class="language-plaintext highlighter-rouge">man 3 printf</code></p>
+<p>po więcej informacji na temat możliwości printf zapraszam pod 3 stronę manuala =&gt; <code class="language-plaintext highlighter-rouge">man 3 printf</code>. Jest tego sporo i zachodzi to trochę na ziemie języka C, dlatego też tutaj się zatrymam i zostawię to do własnego przestudiowania.</p>
 
-<p>Programy typu “Hello World” są najczęściej pisanymi programami, w każdym języku czy to assembler, bash, python, haskell, java, c, go itd.</p>
-
-<p>Dlatego tradycyjnie musi i tu się taki program pojawić.</p>
-
-<p>Spójrzmy na niego za tem</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
-<span class="nb">echo</span> <span class="s2">"hello world"</span>
-</code></pre></div></div>
-
-<p>To było … szybkie.</p>
-
-<p>Ale co tu jest?</p>
-
-<p>Rozłózmy te dwie linijki na czynniki pierwsze.</p>
-
-<p>Pierwsza linia jest to tak zwany “shebang” jest to informacja dla systemu o absolutnej ścieżce do  interpretera którego należy wykorzystać w celu uruchomienia danego skryptu.
-W tym przypadku podaliśmy ścieżkę do komendy <code class="language-plaintext highlighter-rouge">env</code> która wyszuka nam komendę <code class="language-plaintext highlighter-rouge">bash</code></p>
-
-<blockquote>
-  <p>I tak i nie do końca. Tak się mówi, ale prawda jest taka, że komenda <code class="language-plaintext highlighter-rouge">env</code> uruchamia komendę, po niej następującą w zmienionym środowisku. Czyli tak naprawdę, są w tej linii dwie akcje.
-1) Załadowanie środowiska i zmiennych systemowych ( w tym zmiennej <code class="language-plaintext highlighter-rouge">PATH</code>)
-2) Uruchomienie intepretera bash, odnalezione w jednym z katalogów zdefiniowanych w zmiennej <code class="language-plaintext highlighter-rouge">PATH</code></p>
-</blockquote>
-
-<p>Druga linia to już nasze właściwie działanie.
-Komenda <code class="language-plaintext highlighter-rouge">echo</code> jest komendą, która "wydrukuje" na ekran linię z tekstem (linię, czyli ostatnim znakiem będzie LF|\n) i tak przy komendzie <code class="language-plaintext highlighter-rouge">echo "Hello World"</code> otrzymamy wynik <code class="language-plaintext highlighter-rouge">hello world</code></p>
-
-<p><img src="/assets/images/hw.png" alt="Hello World"></p>
-
-<p>Jest jeszcze jedna komenda odpowiedzialna za drukowanie na ekranie. Jest to <code class="language-plaintext highlighter-rouge">printf</code>.</p>
-
-<p>Nie będziemy się dziś tą komendą ale zapraszam do zapoznania się z nią pod <code class="language-plaintext highlighter-rouge">man printf</code></p>
+<p>W następnym poście z serii przejdziemy już do rozsławionego rpzez każdy język programowania programu .. Hello world oraz opowiemy sobie trochę o środowisku urchomieniowym. 
+Serdecznie zapraszam :)</p>
 
 
 

@@ -36,8 +36,8 @@ permalink: /:categories/:year/:title:output_ext
 
 
 # Build settings
-theme: jekyll-theme-yat
-# remote_theme: "jeffreytse/jekyll-theme-yat"
+# theme: jekyll-theme-yat
+remote_theme: "jeffreytse/jekyll-theme-yat"
 #theme: minima
 markdown: kramdown
 kmarkdown:
