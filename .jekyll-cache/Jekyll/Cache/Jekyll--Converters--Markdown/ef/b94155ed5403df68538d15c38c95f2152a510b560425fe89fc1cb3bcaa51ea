@@ -1,0 +1,99 @@
+I"�<p>Dzisiaj zajmiemy się “drukowaniem”, czyli wyświetlaniem wyników na ekran.. i nie tylko.</p>
+
+<p>Zapraszam serdecznie</p>
+
+<h2 id="dzień-dobry-dzień-dobry-dzień-dobry---odpowiedziało-echo">Dzień dobry… Dzień dobry… Dzień dobry - odpowiedziało echo.</h2>
+<blockquote>
+  <p>Mały Książe - Antoine de Saint-Exupéry</p>
+</blockquote>
+
+<p>Najczęściej używanym programem do drukowania na ekran jest program <code class="language-plaintext highlighter-rouge">echo</code></p>
+
+<p>Jest to prosty program ale za to wiele przydatny.</p>
+
+<p>Cały opis programu wygląda następująco:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Echo the STRING(s) to standard output.
+
+       -n     do not output the trailing newline
+
+       -e     enable interpretation of backslash escapes
+
+       -E     disable interpretation of backslash escapes (default)
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+       If -e is in effect, the following sequences are recognized:
+
+       \     backslash
+
+       \a     alert (BEL)
+
+       \b     backspace
+
+       \c     produce no further output
+
+       \e     escape
+
+       \f     form feed
+
+       \n     new line
+
+       \r     carriage return
+
+       \t     horizontal tab
+
+       \v     vertical tab
+
+       '&lt;!JEKYLL@3280@1&gt;'NNN  byte with octal value NNN (1 to 3 digits)
+
+       \xHH   byte with hexadecimal value HH (1 to 2 digits)
+</code></pre></div></div>
+
+<p><img src="/assets/images/b2/e1.png" alt="e1" />
+<img src="/assets/images/b2/e2.png" alt="e2" />
+<img src="/assets/images/b2/e3.png" alt="e3" />
+<img src="/assets/images/b2/e4.png" alt="e4" />
+<img src="/assets/images/b2/e5.png" alt="e5" />
+<img src="/assets/images/b2/e6.png" alt="e6" />
+<img src="/assets/images/b2/e7.png" alt="e7" />
+<img src="/assets/images/b2/e8.png" alt="e8" />
+<img src="/assets/images/b2/e9.png" alt="e9" /></p>
+
+<p>Programy typu “Hello World” są najczęściej pisanymi programami, w każdym języku czy to assembler, bash, python, haskell, java, c, go itd.</p>
+
+<p>Dlatego tradycyjnie musi i tu się taki program pojawić.</p>
+
+<p>Spójrzmy na niego za tem</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
+<span class="nb">echo</span> <span class="s2">"hello world"</span>
+</code></pre></div></div>
+
+<p>To było … szybkie.</p>
+
+<p>Ale co tu jest?</p>
+
+<p>Rozłózmy te dwie linijki na czynniki pierwsze.</p>
+
+<p>Pierwsza linia jest to tak zwany “shebang” jest to informacja dla systemu o absolutnej ścieżce do  interpretera którego należy wykorzystać w celu uruchomienia danego skryptu.
+W tym przypadku podaliśmy ścieżkę do komendy <code class="language-plaintext highlighter-rouge">env</code> która wyszuka nam komendę <code class="language-plaintext highlighter-rouge">bash</code></p>
+
+<blockquote>
+  <p>I tak i nie do końca. Tak się mówi, ale prawda jest taka, że komenda <code class="language-plaintext highlighter-rouge">env</code> uruchamia komendę, po niej następującą w zmienionym środowisku. Czyli tak naprawdę, są w tej linii dwie akcje.
+1) Załadowanie środowiska i zmiennych systemowych ( w tym zmiennej <code class="language-plaintext highlighter-rouge">PATH</code>)
+2) Uruchomienie intepretera bash, odnalezione w jednym z katalogów zdefiniowanych w zmiennej <code class="language-plaintext highlighter-rouge">PATH</code></p>
+</blockquote>
+
+<p>Druga linia to już nasze właściwie działanie.
+Komenda <code class="language-plaintext highlighter-rouge">echo</code> jest komendą, która "wydrukuje" na ekran linię z tekstem (linię, czyli ostatnim znakiem będzie LF|\n) i tak przy komendzie <code class="language-plaintext highlighter-rouge">echo "Hello World"</code> otrzymamy wynik <code class="language-plaintext highlighter-rouge">hello world</code></p>
+
+<p><img src="/assets/images/hw.png" alt="Hello World" /></p>
+
+<p>Jest jeszcze jedna komenda odpowiedzialna za drukowanie na ekranie. Jest to <code class="language-plaintext highlighter-rouge">printf</code>.</p>
+
+<p>Nie będziemy się dziś tą komendą ale zapraszam do zapoznania się z nią pod <code class="language-plaintext highlighter-rouge">man printf</code></p>
+
+:ET

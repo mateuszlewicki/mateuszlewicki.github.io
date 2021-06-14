@@ -1,0 +1,215 @@
+I"C&<p>Dzisiaj zajmiemy się “drukowaniem”, czyli wyświetlaniem wyników na ekran.. i nie tylko.</p>
+
+<p>Zapraszam serdecznie</p>
+
+<h2 id="dzień-dobry-dzień-dobry-dzień-dobry---odpowiedziało-echo">Dzień dobry… Dzień dobry… Dzień dobry - odpowiedziało echo.</h2>
+<blockquote>
+  <p>Mały Książe - Antoine de Saint-Exupéry</p>
+</blockquote>
+
+<p>Najczęściej używanym programem do drukowania na ekran jest program <code class="language-plaintext highlighter-rouge">echo</code></p>
+
+<p>Jest to prosty program ale za to bardzo przydatny, wręcz nieoceniony.</p>
+
+<p>Cały opis programu wygląda następująco:</p>
+
+<pre><code class="language-MAN">Echo the STRING(s) to standard output.
+
+       -n     do not output the trailing newline
+
+       -e     enable interpretation of backslash escapes
+
+       -E     disable interpretation of backslash escapes (default)
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+       If -e is in effect, the following sequences are recognized:
+
+       \     backslash
+
+       \a     alert (BEL)
+
+       \b     backspace
+
+       \c     produce no further output
+
+       \e     escape
+
+       \f     form feed
+
+       \n     new line
+
+       \r     carriage return
+
+       \t     horizontal tab
+
+       \v     vertical tab
+
+       \ONNN  byte with octal value NNN (1 to 3 digits)
+
+       \xHH   byte with hexadecimal value HH (1 to 2 digits)
+</code></pre>
+<blockquote>
+  <p>w przykładnie ósemkowym powinno być 0 zamiast O (problemy techniczne)</p>
+</blockquote>
+
+<p>Przejdźmy kolejno przez kilka przykładów</p>
+
+<blockquote>
+  <p>! w przypadku korzystania z WSL niektóre działania jak np \f mogą nie działać w domyślnym terminalu !</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">\f</code> - przejście do kolejnej linii
+<img src="/assets/images/b2/e1.png" alt="e1" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">\r</code> - tzw powrót karetki (nazwa pochodzi z maszyn do pisania). Wraca na początek linii
+<img src="/assets/images/b2/e2.png" alt="e2" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">\f\r</code> $\vee$ <code class="language-plaintext highlighter-rouge">\n</code> - przejście do nowej linni oraz na początek wiersza
+<img src="/assets/images/b2/e3.png" alt="e3" />
+<img src="/assets/images/b2/e4.png" alt="e4" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">\b</code> - usuwa ostatni znak 
+<img src="/assets/images/b2/e5.png" alt="e5" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">\c</code> - zatrzymuje drukowanie w tym punkcie (włącznie z zakończeniem linii)
+<img src="/assets/images/b2/e6.png" alt="e6" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">\t</code> - szeroki odstęp horyzontalny
+<img src="/assets/images/b2/e7.png" alt="e7" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">\v</code> - odstęp wertykalny
+<img src="/assets/images/b2/e8.png" alt="e8" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">\x</code>,<code class="language-plaintext highlighter-rouge">\O</code> - (powinno bć zero) - drukowanie znaków przy użyciu kodów ASCII
+<img src="/assets/images/b2/e9.png" alt="e9" /></p>
+
+<p>Jak widzimy, mamy kilka propozycji użycia programu echo, które mogą pomóc np. przy tworzeniu interfejsów.</p>
+
+<p><code class="language-plaintext highlighter-rouge">echo</code> ma jeszcze jedną ciekawą funkcję, otóż potrafi wświetlić pliki zgodne z wzrocem np:
+Załóżmy, że mamy 677 plików, zbudowanie z wykorzystaniem zakresu [a-z][A-Z].txt .
+Chcemy z tego zestawu wyciągnąć pliki, które zaczynają się od <code class="language-plaintext highlighter-rouge">e</code>.</p>
+
+<p>Mamy kilka możliwości, by to uzyskać. Pokażę tylko 3 resztę możecie potestować sami, albo poczekać na post na temat globbingu. :)</p>
+
+<p><code class="language-plaintext highlighter-rouge">e*</code> - pierwsza litera ‘e’ i dowolne znaki dalej
+<img src="/assets/images/b2/eg1.png" alt="eg1" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">e[A-Z].???</code> - pierwsza litera e, następnie litera z zakresu (ASCII) A-Z, kropka i 3 znaki
+<img src="/assets/images/b2/eg2.png" alt="eg2" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">e?.txt</code> - litera e, dowolny znak i zakończenie .txt
+<img src="/assets/images/b2/eg3.png" alt="eg3" /></p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">echo</code> w takiej roli potrafi być wredne, ponieważ w przypadku nie znalezienia plików o podanym wzorcu wydrukuje nam ten wzorzec, bez informacji o błędzie</p>
+</blockquote>
+
+<p>Na koniec omawiania komendy <code class="language-plaintext highlighter-rouge">echo</code> dodam, że wzorce mogą być zapisane w zmiennych i potem użyte w poleceniu, z wykorzystaniem rozwiązywania wzorców (glob expansion)</p>
+
+<p><img src="/assets/images/b2/ec1.png" alt="ec1" /></p>
+
+<blockquote>
+  <p>Zwykle takie działania są wynikiem błędu lub niewiedzy, tutaj zaś wykorzustujemy to świadomie</p>
+</blockquote>
+
+<h2 id="-harmonia-i-ład-czyli-przejrzysta-przemyślana-struktura">[…] Harmonia i ład, czyli przejrzysta, przemyślana struktura</h2>
+<blockquote>
+  <p>O typografii i jej nauczaniu - Miesięcznik Znak (07/08.2018)</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">printf</code> tym będziemy się zajmować w tej części, czyli drukowaniem sformatowanym.
+Jest to program którego funkcją, tak samo jak <code class="language-plaintext highlighter-rouge">echo</code>, jest drukowanie na ekranie z tą różnicą, że w przypadku  podania złego typu niż zdefiniowany we wzrocu otrzymamy informację o błędzie oraz zostanie zwrócony kod błędu 1.</p>
+
+<p>Opis komendy wygląda następująco.</p>
+
+<pre><code class="language-MAN">
+       Print ARGUMENT(s) according to FORMAT, or execute according to OPTION:
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+       FORMAT controls the output as in C printf.  Interpreted sequences are:
+
+       \"     double quote
+
+       \ \     backslash
+
+       \a     alert (BEL)
+
+       \b     backspace
+
+       \c     produce no further output
+
+       \e     escape
+
+       \f     form feed
+
+       \n     new line
+
+       \r     carriage return
+
+       \t     horizontal tab
+
+       \v     vertical tab
+
+       \NNN   byte with octal value NNN (1 to 3 digits)
+
+       \xHH   byte with hexadecimal value HH (1 to 2 digits)
+
+       \uHHHH Unicode (ISO/IEC 10646) character with hex value HHHH (4 digits)
+
+       \UHHHHHHHH
+              Unicode character with hex value HHHHHHHH (8 digits)
+
+       %%     a single %
+
+       %b     ARGUMENT as a string with '\ ' escapes interpreted, except that octal escapes are of the form &lt;!JEKYLL@3280@21&gt; or &lt;!JEKYLL@3280@21&gt;NNN
+
+       %q     ARGUMENT is printed in a format that can be reused as shell input, escaping non-printable characters with the proposed POSIX $'' syntax.
+
+       and all C format specifications ending with one of diouxXfeEgGcs, with ARGUMENTs converted to proper type first.  Variable widths are handled.
+
+</code></pre>
+
+<p>po więcej informaji na temat możliwości printf zapraszam pod 3 stronę manuala =&gt; <code class="language-plaintext highlighter-rouge">man 3 printf</code></p>
+
+<p>Programy typu “Hello World” są najczęściej pisanymi programami, w każdym języku czy to assembler, bash, python, haskell, java, c, go itd.</p>
+
+<p>Dlatego tradycyjnie musi i tu się taki program pojawić.</p>
+
+<p>Spójrzmy na niego za tem</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
+<span class="nb">echo</span> <span class="s2">"hello world"</span>
+</code></pre></div></div>
+
+<p>To było … szybkie.</p>
+
+<p>Ale co tu jest?</p>
+
+<p>Rozłózmy te dwie linijki na czynniki pierwsze.</p>
+
+<p>Pierwsza linia jest to tak zwany “shebang” jest to informacja dla systemu o absolutnej ścieżce do  interpretera którego należy wykorzystać w celu uruchomienia danego skryptu.
+W tym przypadku podaliśmy ścieżkę do komendy <code class="language-plaintext highlighter-rouge">env</code> która wyszuka nam komendę <code class="language-plaintext highlighter-rouge">bash</code></p>
+
+<blockquote>
+  <p>I tak i nie do końca. Tak się mówi, ale prawda jest taka, że komenda <code class="language-plaintext highlighter-rouge">env</code> uruchamia komendę, po niej następującą w zmienionym środowisku. Czyli tak naprawdę, są w tej linii dwie akcje.
+1) Załadowanie środowiska i zmiennych systemowych ( w tym zmiennej <code class="language-plaintext highlighter-rouge">PATH</code>)
+2) Uruchomienie intepretera bash, odnalezione w jednym z katalogów zdefiniowanych w zmiennej <code class="language-plaintext highlighter-rouge">PATH</code></p>
+</blockquote>
+
+<p>Druga linia to już nasze właściwie działanie.
+Komenda <code class="language-plaintext highlighter-rouge">echo</code> jest komendą, która "wydrukuje" na ekran linię z tekstem (linię, czyli ostatnim znakiem będzie LF|\n) i tak przy komendzie <code class="language-plaintext highlighter-rouge">echo "Hello World"</code> otrzymamy wynik <code class="language-plaintext highlighter-rouge">hello world</code></p>
+
+<p><img src="/assets/images/hw.png" alt="Hello World" /></p>
+
+<p>Jest jeszcze jedna komenda odpowiedzialna za drukowanie na ekranie. Jest to <code class="language-plaintext highlighter-rouge">printf</code>.</p>
+
+<p>Nie będziemy się dziś tą komendą ale zapraszam do zapoznania się z nią pod <code class="language-plaintext highlighter-rouge">man printf</code></p>
+
+:ET

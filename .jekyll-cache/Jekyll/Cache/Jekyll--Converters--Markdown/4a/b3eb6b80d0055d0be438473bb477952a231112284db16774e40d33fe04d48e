@@ -1,0 +1,27 @@
+I";<h2 id="adh--adhoc">ADH == Adhoc</h2>
+<p>ADH jest serią tak zwaną “na szybko”, gdzy coś w pracy mnie zainteresowało i wrzucam krótka notatkę na temat problemu i rozwiązania.</p>
+
+<h2 id="adh-1-php-fpm-nie-działa-ale-jednak-działa">ADH 1 php-fpm nie działa ale jednak działa</h2>
+
+<p>Temat wygląda następującą. Aplikacja A wysyła żądanie do aplikacji B, która pobiera i konwertuje PDF’y.
+Aplikacja A dostaje po chwili kod 503 ale na systemie widać, że program działa i prerabia tego PDF’a.</p>
+
+<p>Co w takim razię się dzieje?</p>
+
+<p>Sprawa wygląda ciekawie, kiedy wejdziemy w error loga. Okazuje się, że serwer www nie otrzymuje informacji zwrotnej od php-fpm w wyznaczonym czasie.</p>
+
+<p>Rozwiązaniem na te dziwne zachowanie są dwie dyrektywy, które możemy ustawić globalnie w httpd.conf albo w <code class="language-plaintext highlighter-rouge">&lt;VirtualHost &gt;</code>.
+Są to :
+<strong>TimeOut</strong> 
+<img src="/assets/images/adh1/CTout.png" alt="Timeout" /></p>
+<blockquote>
+  <p>Źródło : https://httpd.apache.org/docs/2.4/mod/core.html#timeout</p>
+</blockquote>
+
+<p>oraz
+<strong>ProxyTimeout</strong>
+<img src="/assets/images/adh1/PTout.png" alt="ProxyTimeout" /></p>
+<blockquote>
+  <p>Źródło : https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#proxytimeout</p>
+</blockquote>
+:ET
