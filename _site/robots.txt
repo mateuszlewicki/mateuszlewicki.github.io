@@ -1,1 +1,1 @@
-Sitemap: mateuszlewicki.pl/sitemap.xml
+Sitemap: mateuszlewicki.pl/mateuszlewicki.pl/sitemap.xml
