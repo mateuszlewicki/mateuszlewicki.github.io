@@ -1,4 +1,4 @@
-I"H <p>Dzisiaj zajmiemy się “drukowaniem”, czyli wyświetlaniem wyników na ekran i nie tylko.</p>
+I"C <p>Dzisiaj zajmiemy się “drukowaniem”, czyli wyświetlaniem wyników na ekran i nie tylko.</p>
 
 <p>Zapraszam serdecznie.</p>
 
@@ -68,7 +68,7 @@
 <p><code class="language-plaintext highlighter-rouge">\r</code> - tzw powrót karetki (nazwa pochodzi z maszyn do pisania). Wraca na początek linii
 <img src="/assets/images/b2/e2.png" alt="e2" /></p>
 
-<p><code class="language-plaintext highlighter-rouge">\f\r</code> $\vee$ <code class="language-plaintext highlighter-rouge">\n</code> - przejście do nowej linni oraz na początek wiersza
+<p><code class="language-plaintext highlighter-rouge">\f\r</code> V <code class="language-plaintext highlighter-rouge">\n</code> - przejście do nowej linni oraz na początek wiersza
 <img src="/assets/images/b2/e3.png" alt="e3" />
 <img src="/assets/images/b2/e4.png" alt="e4" /></p>
 

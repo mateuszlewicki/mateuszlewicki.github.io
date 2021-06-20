@@ -1,4 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="mateuszlewicki.pl/mateuszlewicki.pl/feed.xml" rel="self" type="application/atom+xml" /><link href="mateuszlewicki.pl/mateuszlewicki.pl/" rel="alternate" type="text/html" /><updated>2021-06-14T14:13:04+02:00</updated><id>mateuszlewicki.pl/mateuszlewicki.pl/feed.xml</id><title type="html">Mateusz Lewicki Blog</title><subtitle>Miejsce do dzielenia się moją wiedzą, ciekawostkami i przemyśleniami na temat świata administracji IT i innych devoposów </subtitle><entry><title type="html">Skrypty powłoki Bash #2 - Jak Gutenberg przykazał</title><link href="mateuszlewicki.pl/mateuszlewicki.pl/skrypty/2021/Bash2.html" rel="alternate" type="text/html" title="Skrypty powłoki Bash #2 - Jak Gutenberg przykazał" /><published>2021-06-14T00:00:00+02:00</published><updated>2021-06-14T00:00:00+02:00</updated><id>mateuszlewicki.pl/mateuszlewicki.pl/skrypty/2021/Bash2</id><content type="html" xml:base="mateuszlewicki.pl/mateuszlewicki.pl/skrypty/2021/Bash2.html">&lt;p&gt;Dzisiaj zajmiemy się “drukowaniem”, czyli wyświetlaniem wyników na ekran i nie tylko.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="mateuszlewicki.pl/mateuszlewicki.pl/feed.xml" rel="self" type="application/atom+xml" /><link href="mateuszlewicki.pl/mateuszlewicki.pl/" rel="alternate" type="text/html" /><updated>2021-06-20T11:29:06+02:00</updated><id>mateuszlewicki.pl/mateuszlewicki.pl/feed.xml</id><title type="html">Mateusz Lewicki Blog</title><subtitle>Miejsce do dzielenia się moją wiedzą, ciekawostkami i przemyśleniami na temat świata administracji IT i innych devoposów </subtitle><entry><title type="html">Skrypty powłoki Bash #3 - Witaj w naszym świecie</title><link href="mateuszlewicki.pl/mateuszlewicki.pl/skrypty/2021/Bash3.html" rel="alternate" type="text/html" title="Skrypty powłoki Bash #3 - Witaj w naszym świecie" /><published>2021-06-20T00:00:00+02:00</published><updated>2021-06-20T00:00:00+02:00</updated><id>mateuszlewicki.pl/mateuszlewicki.pl/skrypty/2021/Bash3</id><content type="html" xml:base="mateuszlewicki.pl/mateuszlewicki.pl/skrypty/2021/Bash3.html">&lt;h2 id=&quot;witaj-fajnie-że-wpadłeś&quot;&gt;Witaj fajnie, że wpadłeś.&lt;/h2&gt;
+
+&lt;p&gt;Dzień dobry, dzień dobry.
+Dziś obiecany Hello World. Program, po którym można wpisać do CV znajomość danego języka. :)&lt;/p&gt;
+
+&lt;p&gt;Dzisiaj omówię pokrótce sam program oraz wspomnę o środowisku uruchomieniowym.
+Zapraszam.&lt;/p&gt;
+
+&lt;h2 id=&quot;wszyscy-mają-hello-world-mam-i-ja&quot;&gt;Wszyscy mają Hello World, mam i Ja.&lt;/h2&gt;
+
+&lt;p&gt;Programy typu “Hello World” są najczęściej pisanymi programami, w każdym języku czy to assembler, bash, python, haskell, java, c, go itd.&lt;/p&gt;
+
+&lt;p&gt;Dlatego tradycyjnie musi i tu się taki program pojawić.&lt;/p&gt;
+
+&lt;p&gt;Spójrzmy na niego zatem&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hello world&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To było … szybkie.&lt;/p&gt;
+
+&lt;p&gt;A co my tutaj w ogóle mamy?&lt;/p&gt;
+
+&lt;p&gt;Rozłóżmy te dwie linijki na czynniki pierwsze.&lt;/p&gt;
+
+&lt;p&gt;Pierwsza linia jest to tak zwany “shebang” jest to informacja dla systemu o absolutnej ścieżce, do którego interpretera należy wykorzystać w celu uruchomienia danego skryptu.
+W tym przypadku podaliśmy ścieżkę do komendy &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;env&lt;/code&gt; która wyszuka nam komendę &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bash&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;I tak i nie do końca. Tak się mówi, ale prawda jest taka, że komenda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;env&lt;/code&gt; uruchamia komendę, po niej następującą w zmienionym środowisku. Czyli tak naprawdę, są w tej linii dwie akcje.
+1) Załadowanie środowiska i zmiennych systemowych ( w tym zmiennej &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PATH&lt;/code&gt;)
+2) Uruchomienie intepretera bash, odnalezione w jednym z katalogów zdefiniowanych w zmiennej &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PATH&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Ktoś może powiedzieć, ale skrypty uruchamiają się z pobranych zmiennych od użytkownika, to dlaczego muszę kazać mu znaleźć interpreter poprzez komendę &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;env&lt;/code&gt; zamiast napisać samo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bash&lt;/code&gt;?&lt;/p&gt;
+
+&lt;p&gt;Już śpieszę z wyjaśnieniem, bo to jest oczywiście prawda, jeżeli uruchamiamy program, bezpośrednio przez interpreter, czyli &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bash skrypt.sh&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;W przypadku, gdy uruchamiamy program, jako samodzielny wykonywalny plik, to wtedy Linux statycznie sprawdza nagłówek, by określić, jak operować na pliku i dlatego podajemy mu ścieżkę do interpretera lub “rozkaz” by system wyszukał wymaganego przez nas interpretera i zmiennej środowiskowej &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PATH&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Druga linia to już nasze właściwie działanie.&lt;/p&gt;
+
+&lt;p&gt;Tak, jak mówiłem o drukowaniu w &lt;a href=&quot;/skrypty/2021/Bash2.html&quot;&gt;“Skrypty powłoki Bash #2 - Jak Gutenberg przykazał”&lt;/a&gt;, komenda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo&lt;/code&gt; jest komendą, która “wydrukuje” na ekran linię z tekstem (linię, czyli ostatnim znakiem będzie LF v \n) i tak przy komendzie &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo &quot;Hello World&quot;&lt;/code&gt; otrzymamy wynik &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello world&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/hw.png&quot; alt=&quot;Hello World&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ekscytujące prawda?&lt;/p&gt;
+
+&lt;p&gt;Wiem, że nie aż tak jak inne programy, ale jak to mówią “zaraz się rozkręci”&lt;/p&gt;
+
+&lt;h2 id=&quot;ile-można&quot;&gt;Ile można?&lt;/h2&gt;
+
+&lt;p&gt;Na dziś to tyle, no bo ile można rozprawiać o Hello World :)&lt;/p&gt;
+
+&lt;p&gt;Serdecznie zapraszam na dalsze artykuły.
+Życzę miłego dnia.&lt;/p&gt;</content><author><name>Mateusz Lewicki</name></author><category term="Skrypty" /><category term="Bash" /><category term="Shell" /><category term="Administracja" /><category term="Linux" /><summary type="html">Witaj fajnie, że wpadłeś.</summary></entry><entry><title type="html">ADH #1 - php-fpm, timeout a jednak działa</title><link href="mateuszlewicki.pl/mateuszlewicki.pl/administracja/2021/ADH1.html" rel="alternate" type="text/html" title="ADH #1 - php-fpm, timeout a jednak działa" /><published>2021-06-15T00:00:00+02:00</published><updated>2021-06-15T00:00:00+02:00</updated><id>mateuszlewicki.pl/mateuszlewicki.pl/administracja/2021/ADH1</id><content type="html" xml:base="mateuszlewicki.pl/mateuszlewicki.pl/administracja/2021/ADH1.html">&lt;h2 id=&quot;adh--adhoc&quot;&gt;ADH == Adhoc&lt;/h2&gt;
+&lt;p&gt;ADH jest serią tak zwaną “na szybko”, gdy coś w pracy mnie zainteresowało i wrzucam krótką notatkę na temat problemu i rozwiązania.&lt;/p&gt;
+
+&lt;h2 id=&quot;adh-1-php-fpm-nie-działa-ale-jednak-działa&quot;&gt;ADH 1 php-fpm nie działa, ale jednak działa.&lt;/h2&gt;
+
+&lt;p&gt;Temat wygląda następującą. Aplikacja A wysyła żądanie do aplikacji B, która pobiera i konwertuje PDF’y.
+Aplikacja A dostaje po chwili kod 503, ale na systemie widać, że program działa i konwertuje plik PDF.&lt;/p&gt;
+
+&lt;p&gt;Co w takim razie się dzieje?&lt;/p&gt;
+
+&lt;p&gt;Sprawa wygląda ciekawie, kiedy wejdziemy w error loga. Okazuje się, że serwer www nie otrzymuje informacji zwrotnej od php-fpm w wyznaczonym czasie.&lt;/p&gt;
+
+&lt;p&gt;Rozwiązaniem na te dziwne zachowanie są dwie dyrektywy, które możemy ustawić globalnie w httpd.conf albo w &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;VirtualHost &amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Są to :
+&lt;strong&gt;TimeOut&lt;/strong&gt; 
+&lt;img src=&quot;/assets/images/adh1/CTout.png&quot; alt=&quot;Timeout&quot; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Źródło: &lt;a href=&quot;https://httpd.apache.org/docs/2.4/mod/core.html#timeout&quot;&gt;https://httpd.apache.org/docs/2.4/mod/core.html#timeout&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;oraz
+&lt;strong&gt;ProxyTimeout&lt;/strong&gt;
+&lt;img src=&quot;/assets/images/adh1/PTout.png&quot; alt=&quot;ProxyTimeout&quot; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Źródło: &lt;a href=&quot;https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#proxytimeout&quot;&gt;https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#proxytimeout&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Powodują one, jak nazwa wskazuje, że serwer będzie czekał tak długo na odpowiedź, ile sekund wpisaliśmy w tych dyrektywach (domyślnie 60s).&lt;/p&gt;
+
+&lt;p&gt;Mam nadzieję, że taka informacja wam się przyda :)&lt;/p&gt;</content><author><name>Mateusz Lewicki</name></author><category term="Administracja" /><category term="php-fpm" /><category term="httpd" /><category term="apache" /><category term="webserver" /><category term="Administracja" /><category term="Linux" /><summary type="html">ADH == Adhoc ADH jest serią tak zwaną “na szybko”, gdy coś w pracy mnie zainteresowało i wrzucam krótką notatkę na temat problemu i rozwiązania.</summary></entry><entry><title type="html">Skrypty powłoki Bash #2 - Jak Gutenberg przykazał</title><link href="mateuszlewicki.pl/mateuszlewicki.pl/skrypty/2021/Bash2.html" rel="alternate" type="text/html" title="Skrypty powłoki Bash #2 - Jak Gutenberg przykazał" /><published>2021-06-14T00:00:00+02:00</published><updated>2021-06-14T00:00:00+02:00</updated><id>mateuszlewicki.pl/mateuszlewicki.pl/skrypty/2021/Bash2</id><content type="html" xml:base="mateuszlewicki.pl/mateuszlewicki.pl/skrypty/2021/Bash2.html">&lt;p&gt;Dzisiaj zajmiemy się “drukowaniem”, czyli wyświetlaniem wyników na ekran i nie tylko.&lt;/p&gt;
 
 &lt;p&gt;Zapraszam serdecznie.&lt;/p&gt;
 
@@ -68,7 +151,7 @@
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\r&lt;/code&gt; - tzw powrót karetki (nazwa pochodzi z maszyn do pisania). Wraca na początek linii
 &lt;img src=&quot;/assets/images/b2/e2.png&quot; alt=&quot;e2&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\f\r&lt;/code&gt; $\vee$ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\n&lt;/code&gt; - przejście do nowej linni oraz na początek wiersza
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\f\r&lt;/code&gt; V &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\n&lt;/code&gt; - przejście do nowej linni oraz na początek wiersza
 &lt;img src=&quot;/assets/images/b2/e3.png&quot; alt=&quot;e3&quot; /&gt;
 &lt;img src=&quot;/assets/images/b2/e4.png&quot; alt=&quot;e4&quot; /&gt;&lt;/p&gt;
 

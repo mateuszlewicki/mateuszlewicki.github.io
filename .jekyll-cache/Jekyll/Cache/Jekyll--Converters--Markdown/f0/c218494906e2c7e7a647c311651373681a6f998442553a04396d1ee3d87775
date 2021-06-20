@@ -1,0 +1,55 @@
+I"�<h2 id="witaj-fajnie-że-wpadłeś">Witaj fajnie, że wpadłeś.</h2>
+
+<p>Dzień dobry, dzień dobry.
+Dziś obiecany Hello World. Program, po którym można wpisać do CV znajomość danego języka. :)</p>
+
+<p>Dzisiaj omówię pokrótce sam program oraz wspomnę o środowisku uruchomieniowym.
+Zapraszam.</p>
+
+<h2 id="wszyscy-mają-hello-world-mam-i-ja">Wszyscy mają Hello World, mam i Ja.</h2>
+
+<p>Programy typu “Hello World” są najczęściej pisanymi programami, w każdym języku czy to assembler, bash, python, haskell, java, c, go itd.</p>
+
+<p>Dlatego tradycyjnie musi i tu się taki program pojawić.</p>
+
+<p>Spójrzmy na niego zatem</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
+<span class="nb">echo</span> <span class="s2">"hello world"</span>
+</code></pre></div></div>
+
+<p>To było … szybkie.</p>
+
+<p>A co my tutaj w ogóle mamy?</p>
+
+<p>Rozłóżmy te dwie linijki na czynniki pierwsze.</p>
+
+<p>Pierwsza linia jest to tak zwany “shebang” jest to informacja dla systemu o absolutnej ścieżce, do którego interpretera należy wykorzystać w celu uruchomienia danego skryptu.
+W tym przypadku podaliśmy ścieżkę do komendy <code class="language-plaintext highlighter-rouge">env</code> która wyszuka nam komendę <code class="language-plaintext highlighter-rouge">bash</code></p>
+
+<p>I tak i nie do końca. Tak się mówi, ale prawda jest taka, że komenda <code class="language-plaintext highlighter-rouge">env</code> uruchamia komendę, po niej następującą w zmienionym środowisku. Czyli tak naprawdę, są w tej linii dwie akcje.
+1) Załadowanie środowiska i zmiennych systemowych ( w tym zmiennej <code class="language-plaintext highlighter-rouge">PATH</code>)
+2) Uruchomienie intepretera bash, odnalezione w jednym z katalogów zdefiniowanych w zmiennej <code class="language-plaintext highlighter-rouge">PATH</code></p>
+
+<p>Ktoś może powiedzieć, ale skrypty uruchamiają się z pobranych zmiennych od użytkownika, to dlaczego muszę kazać mu znaleźć interpreter poprzez komendę <code class="language-plaintext highlighter-rouge">env</code> zamiast napisać samo <code class="language-plaintext highlighter-rouge">bash</code>?</p>
+
+<p>Już śpieszę z wyjaśnieniem, bo to jest oczywiście prawda, jeżeli uruchamiamy program, bezpośrednio przez interpreter, czyli <code class="language-plaintext highlighter-rouge">bash skrypt.sh</code>.</p>
+
+<p>W przypadku, gdy uruchamiamy program, jako samodzielny wykonywalny plik, to wtedy Linux statycznie sprawdza nagłówek, by określić, jak operować na pliku i dlatego podajemy mu ścieżkę do interpretera lub “rozkaz” by system wyszukał wymaganego przez nas interpretera i zmiennej środowiskowej <code class="language-plaintext highlighter-rouge">PATH</code></p>
+
+<p>Druga linia to już nasze właściwie działanie.</p>
+
+<p>Tak, jak mówiłem o drukowaniu w <a href="/skrypty/2021/Bash2.html">“Skrypty powłoki Bash #2 - Jak Gutenberg przykazał”</a>, komenda <code class="language-plaintext highlighter-rouge">echo</code> jest komendą, która “wydrukuje” na ekran linię z tekstem (linię, czyli ostatnim znakiem będzie LF v \n) i tak przy komendzie <code class="language-plaintext highlighter-rouge">echo "Hello World"</code> otrzymamy wynik <code class="language-plaintext highlighter-rouge">hello world</code></p>
+
+<p><img src="/assets/images/hw.png" alt="Hello World" /></p>
+
+<p>Ekscytujące prawda?</p>
+
+<p>Wiem, że nie aż tak jak inne programy, ale jak to mówią “zaraz się rozkręci”</p>
+
+<h2 id="ile-można">Ile można?</h2>
+
+<p>Na dziś to tyle, no bo ile można rozprawiać o Hello World :)</p>
+
+<p>Serdecznie zapraszam na dalsze artykuły.
+Życzę miłego dnia.</p>
+:ET
