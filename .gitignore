@@ -23,3 +23,5 @@ _site/skrypty/2021/Bash2.html
 _site/skrypty/2021/Bash3.html
 .jekyll-cache/Jekyll/Cache/Jekyll--Cache/b7/9606fb3afea5bd1609ed40b622142f1c98125abcfe89a76a661b0e8e343910
 .jekyll-cache/Jekyll/Cache/Jekyll--Converters--Markdown/89/2a0515bb8af9590b56ed8bf4a00cd057e1026f249c6891aa4cf0d42a9fafab
+_posts/*.bck
+_posts/*~
